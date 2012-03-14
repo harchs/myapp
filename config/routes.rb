@@ -55,4 +55,16 @@ Myapp::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
+
+ match 'users/:id/:name/badges' => 'Users#badges', :as=> 'user_badges' 
+  match 'users/:id/:name/friends' => 'Users#friends', :as=> 'user_friends'
+  match 'venues/:id/:name/tips' => 'Venues#tips', :as=> 'venues_tips' 
+  # This route can be invoked with purchase_url(:id => product.id)
+
+  match "users/find" => "Users#find"
+  match "users/badges" => "Users#badges"
+  match "venues/find" => "Venues#find"
+
+  root :to => 'welcome#index'
+
 end
